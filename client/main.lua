@@ -279,7 +279,7 @@ Citizen.CreateThread(function()
                                                 -- Checks if you've delivered all the bags
                                                 if (AmountOfBags - 1) == 0 then
                                                     -- Delivered all the bags
-                                                    Earnings = Earnings + math.random(60, 90)
+                                                    Earnings = Earnings + math.random(200, 500)
                                                     if (GarbageLocation + 1) <= AmountOfLocations then
                                                         -- Here he puts your next location and you are not finished working yet.
                                                         GarbageLocation = GarbageLocation + 1

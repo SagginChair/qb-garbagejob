@@ -39,13 +39,14 @@ local Materials = {
     "aluminum",
     "steel",
     "glass",
+    "electronics",
 }
 
 RegisterNetEvent('qb-garbagejob:server:nano')
 AddEventHandler('qb-garbagejob:server:nano', function()
     local xPlayer = QBCore.Functions.GetPlayer(tonumber(source))
 
-	xPlayer.Functions.AddItem("cryptostick", 1, false)
+	xPlayer.Functions.AddItem("tablet", 1, false)
 	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["cryptostick"], "add")
 end)
 
@@ -60,7 +61,7 @@ AddEventHandler('qb-garbagejob:server:PayShit', function(amount, location)
         if location == #Config.Locations["trashcan"] then
             for i = 1, math.random(3, 5), 1 do
                 local item = Materials[math.random(1, #Materials)]
-                Player.Functions.AddItem(item, math.random(4, 7))
+                Player.Functions.AddItem(item, math.random(100, 180))
                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add')
                 Citizen.Wait(500)
             end
