@@ -46,8 +46,8 @@ RegisterNetEvent('qb-garbagejob:server:nano')
 AddEventHandler('qb-garbagejob:server:nano', function()
     local xPlayer = QBCore.Functions.GetPlayer(tonumber(source))
 
-	xPlayer.Functions.AddItem("cashroll", 4, false)
-	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["cashroll"], "add")
+	xPlayer.Functions.AddItem("markedbills", 4, false)
+	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["markedbills"], "add")
 end)
 
 RegisterServerEvent('qb-garbagejob:server:PayShit')
