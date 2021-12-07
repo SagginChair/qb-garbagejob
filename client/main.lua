@@ -52,13 +52,8 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
     GarbageObject = nil
     EndBlip = nil
 
-    if PlayerJob.name == "garbage" then
-        if GarbageBlip ~= nil then
-            RemoveBlip(GarbageBlip)
-        end
-    end
 
-    if JobInfo.name == "garbage" then
+    -- if JobInfo.name == "garbage" then
         GarbageBlip = AddBlipForCoord(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)
         SetBlipSprite(GarbageBlip, 318)
         SetBlipDisplay(GarbageBlip, 4)
@@ -68,7 +63,7 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentSubstringPlayerName(Config.Locations["main"].label)
         EndTextCommandSetBlipName(GarbageBlip)
-    end
+    -- end
 
     PlayerJob = JobInfo
 end)
@@ -175,7 +170,7 @@ Citizen.CreateThread(function()
         local distance = #(pos - vector3(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z))
 
         if isLoggedIn then
-            if PlayerJob.name == "garbage" then
+            -- if PlayerJob.name == "garbage" then
                 if distance < 10.0 then
                     DrawMarker(2, Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 233, 55, 22, 222, false, false, false, true, false, false, false)
                     if distance < 1.5 then
@@ -221,7 +216,7 @@ Citizen.CreateThread(function()
                         end
                     end
                 end
-            end
+            -- end
         end
 
         Citizen.Wait(1)
@@ -236,7 +231,7 @@ Citizen.CreateThread(function()
         local inRange = false
 
         if isLoggedIn then
-            if PlayerJob.name == "garbage" then
+            -- if PlayerJob.name == "garbage" then
                 if IsWorking then
                     if GarbageLocation ~= 0 then
                         if DeliveryBlip ~= nil then
@@ -321,7 +316,7 @@ Citizen.CreateThread(function()
                         end
                     end
                 end
-            end
+            -- end
         end
 
         if not IsWorking then
