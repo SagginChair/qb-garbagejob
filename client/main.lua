@@ -26,18 +26,6 @@ AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     AmountOfBags = 0
     GarbageObject = nil
     EndBlip = nil
-
-    if PlayerJob.name == "garbage" then
-        GarbageBlip = AddBlipForCoord(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)
-        SetBlipSprite(GarbageBlip, 318)
-        SetBlipDisplay(GarbageBlip, 4)
-        SetBlipScale(GarbageBlip, 0.6)
-        SetBlipAsShortRange(GarbageBlip, true)
-        SetBlipColour(GarbageBlip, 39)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName(Config.Locations["main"].label)
-        EndTextCommandSetBlipName(GarbageBlip)
-    end
 end)
 
 RegisterNetEvent('QBCore:Client:OnJobUpdate')
