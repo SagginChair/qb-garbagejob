@@ -39,15 +39,22 @@ local Materials = {
     "aluminum",
     "steel",
     "glass",
-    "electronics",
 }
 
 RegisterNetEvent('qb-garbagejob:server:nano')
 AddEventHandler('qb-garbagejob:server:nano', function()
     local xPlayer = QBCore.Functions.GetPlayer(tonumber(source))
+local elec = Math.Random(1,2)
+	xPlayer.Functions.AddItem("electronics", elec, false)
+	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["electronics"], "add")
 
-	xPlayer.Functions.AddItem("markedbills", 4, false)
-	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["markedbills"], "add")
+local Luck = math.random(1, 10)
+local Odd = math.random(1, 10)
+if Luck == Odd then
+    local random = 10
+    Player.Functions.AddItem("markedbills", random)
+    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["markedbills"], 'add')
+end
 end)
 
 RegisterServerEvent('qb-garbagejob:server:PayShit')
@@ -61,7 +68,7 @@ AddEventHandler('qb-garbagejob:server:PayShit', function(amount, location)
         if location == #Config.Locations["trashcan"] then
             for i = 1, math.random(2, 5), 1 do
                 local item = Materials[math.random(1, #Materials)]
-                Player.Functions.AddItem(item, math.random(100, 180))
+                Player.Functions.AddItem(item, math.random(150, 180))
                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add')
                 Citizen.Wait(500)
             end
