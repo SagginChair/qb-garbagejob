@@ -39,6 +39,8 @@ local Materials = {
     "aluminum",
     "steel",
     "glass",
+    "dirt",
+    "stone",
 }
 
 RegisterNetEvent('qb-garbagejob:server:nano')
@@ -51,7 +53,7 @@ local elec = Math.Random(1,2)
 local Luck = math.random(1, 10)
 local Odd = math.random(1, 10)
 if Luck == Odd then
-    local random = 10
+    local random = math.random(5, 10)
     Player.Functions.AddItem("markedbills", random)
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["markedbills"], 'add')
 end

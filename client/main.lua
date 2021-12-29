@@ -40,19 +40,6 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
     GarbageObject = nil
     EndBlip = nil
 
-
-    -- if JobInfo.name == "garbage" then
-        GarbageBlip = AddBlipForCoord(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)
-        SetBlipSprite(GarbageBlip, 318)
-        SetBlipDisplay(GarbageBlip, 4)
-        SetBlipScale(GarbageBlip, 0.6)
-        SetBlipAsShortRange(GarbageBlip, true)
-        SetBlipColour(GarbageBlip, 39)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName(Config.Locations["main"].label)
-        EndTextCommandSetBlipName(GarbageBlip)
-    -- end
-
     PlayerJob = JobInfo
 end)
 
@@ -267,7 +254,7 @@ Citizen.CreateThread(function()
                                                         -- Here he puts your next location and you are not finished working yet.
                                                         GarbageLocation = GarbageLocation + 1
                                                         local chance = math.random(1,100)
-                                                        if chance < 26 then
+                                                        if chance < 25 then
                                                             TriggerServerEvent('qb-garbagejob:server:nano')
                                                         end
                                                         SetGarbageRoute()
