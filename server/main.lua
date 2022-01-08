@@ -46,7 +46,7 @@ local Materials = {
 RegisterNetEvent('qb-garbagejob:server:nano')
 AddEventHandler('qb-garbagejob:server:nano', function()
     local xPlayer = QBCore.Functions.GetPlayer(tonumber(source))
-local elec = Math.Random(1,2)
+local elec = math.random(1,2)
 	xPlayer.Functions.AddItem("electronics", elec, false)
 	TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["electronics"], "add")
 
